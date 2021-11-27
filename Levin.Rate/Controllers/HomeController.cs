@@ -1,4 +1,6 @@
 ﻿using Levin.Rate.Models;
+using Levin.Rate.Models.Proxy;
+using Levin.Rate.Models.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -21,7 +23,11 @@ namespace Levin.Rate.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Proxy proxy = new Proxy();
+
+            var model = proxy.Request();
+
+            return View(model);
         }
 
         public IActionResult Privacy()

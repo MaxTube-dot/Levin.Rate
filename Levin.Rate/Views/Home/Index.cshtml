@@ -1,25 +1,48 @@
-﻿@{
+﻿@using Levin.Rate.Models.Valute
+@model Levin.Rate.Models.Valute.ValutesCurs
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div style="color: white;">
     <div class="table-responsive">
+        <div></div>
         <table class="table">
             <thead>
                 <tr style="text-align: center;color: white;">
-                    <th>Валюта</th>
-                    <th>Курс</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody style="text-align: center;color: white;">
+                @foreach (var valute in Model.Valute)
+                {
                 <tr>
-                    <td>Cell 1</td>
-                    <td>Cell 2</td>
+                    <td>
+                        @valute.ID;
+                    </td>
+                    <td>
+                        @valute.Name;
+                    </td>
+                    <td>
+                        @valute.Nominal;
+                    </td>
+                    <td>
+                        @valute.NumCode;
+                    </td>
+                    <td>
+                        @valute.Value;
+                    </td>
+                    <td>
+                        @valute.CharCode;
+                    </td>
+                 
                 </tr>
-                <tr>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                </tr>
+                }
             </tbody>
         </table>
     </div>
