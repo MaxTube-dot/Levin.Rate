@@ -3,17 +3,15 @@
     /// <summary>
     /// Несколько валют получаемых с сервера.
     /// </summary>
-    #region AttributeValCurs
+
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-    #endregion
-   
-    public partial class ValutesCurs
+    public partial class ValCurs
     {
 
-        private ValuteCurs[] valuteField;
+        private ValCursValute[] valuteField;
 
         private string dateField;
 
@@ -21,7 +19,7 @@
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Valute")]
-        public ValuteCurs[] Valute
+        public ValCursValute[] Valute
         {
             get
             {

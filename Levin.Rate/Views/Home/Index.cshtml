@@ -1,5 +1,5 @@
 ﻿@using Levin.Rate.Models.Valute
-@model Levin.Rate.Models.Valute.ValutesCurs
+@model Levin.Rate.Models.Valute.ValCurs
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -7,40 +7,41 @@
 <div style="color: white;">
     <div class="table-responsive">
         <div></div>
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
-                <tr style="text-align: center;color: white;">
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                <tr style="text-align: left;color: white;">
+                    <th>Сокращение</th>
+                    <th>Номинал</th>
+                    <th>Название</th>
+                    <th>Стоимость в рублях</th>
+                    <th>Код валюты</th>
+                    <th>Id валюты</th>
                 </tr>
             </thead>
-            <tbody style="text-align: center;color: white;">
+            <tbody style="text-align: left;color: white;">
                 @foreach (var valute in Model.Valute)
                 {
                 <tr>
                     <td>
-                        @valute.ID;
-                    </td>
-                    <td>
-                        @valute.Name;
+                        @valute.CharCode;
                     </td>
                     <td>
                         @valute.Nominal;
                     </td>
                     <td>
-                        @valute.NumCode;
+                        @valute.Name;
                     </td>
                     <td>
                         @valute.Value;
                     </td>
                     <td>
-                        @valute.CharCode;
+                        @valute.NumCode;
                     </td>
-                 
+
+                    <td>
+                        @valute.ID;
+                    </td>
+
                 </tr>
                 }
             </tbody>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Net;
+﻿using System.Xml;
 using System.Xml.Serialization;
 using Levin.Rate.Models.Valute;
 
@@ -8,22 +6,17 @@ namespace Levin.Rate.Models.Proxy
 {
     class RealSubject : Subject
     {
-        public override ValutesCurs Request()
+        public override ValCurs Request()
         {
-            string dataXML = String.Empty;
+            string url = "https://www.cbr-xml-daily.ru/daily_utf8.xml";
 
-            using (WebClient client  = new WebClient())
+            XmlSerializer serializer = new XmlSerializer(typeof(ValCurs));
+
+            ValCurs valutesCurs = new ValCurs();
+
+            using (XmlTextReader reader = new XmlTextReader(url))
             {
-                dataXML =  client.DownloadString(https://www.cbr-xml-daily.ru/daily_utf8.xml);
-            }
-
-            XmlSerializer serializer = new XmlSerializer(typeof(ValutesCurs));
-
-            ValutesCurs valutesCurs = new ValutesCurs();
-
-            using (TextReader reader = new StreamReader(dataXML))
-            {
-                valutesCurs = (ValutesCurs)serializer.Deserialize(reader);
+                valutesCurs = (ValCurs)serializer.Deserialize(reader);
             }
 
             return valutesCurs;

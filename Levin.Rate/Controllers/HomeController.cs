@@ -16,6 +16,8 @@ namespace Levin.Rate.Controllers
 
         private readonly ILogger<HomeController> _logger;
 
+        
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -23,9 +25,9 @@ namespace Levin.Rate.Controllers
 
         public IActionResult Index()
         {
-            Proxy proxy = new Proxy();
+           
 
-            var model = proxy.Request();
+            var model = Repository.ProxyValute.Request();
 
             return View(model);
         }

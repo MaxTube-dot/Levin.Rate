@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Levin.Rate.Models.Repository
 {
-    public class ValuteRepository : IRepository<ValutesCurs>
+    public class ValuteRepository : IRepository<ValCurs>
     {
-        List<ValutesCurs> valutesCurs = new List<ValutesCurs>() {
+        List<ValCurs> valutesCurs = new List<ValCurs>() {
         
-            new ValutesCurs(){     
+            new ValCurs(){     
                 name="Один",
                 Date = DateTime.Now.ToString(),
-                Valute = new ValuteCurs[]{ 
-                    new ValuteCurs {    
+                Valute = new ValCursValute[]{ 
+                    new ValCursValute {    
                         CharCode="17", ID="1", Name="RUN", Nominal=1, NumCode=23, Value= "df"             
                     }      
                 }
             }, 
-            new ValutesCurs(){
+            new ValCurs(){
                 name="Один",
                 Date = DateTime.Now.ToString(),
-                Valute = new ValuteCurs[]{
-                    new ValuteCurs {
+                Valute = new ValCursValute[]{
+                    new ValCursValute {
                         CharCode="14", ID="41", Name="R3UN", Nominal=12, NumCode=233, Value= "df3"
                     }
                 }
@@ -32,7 +32,7 @@ namespace Levin.Rate.Models.Repository
 
 
 
-        public void Create(ValutesCurs item)
+        public void Create(ValCurs item)
         {
             valutesCurs.Add(item);
         }
@@ -48,17 +48,17 @@ namespace Levin.Rate.Models.Repository
             throw new NotImplementedException();
         }
 
-        public ValutesCurs GetValute(int id)
+        public ValCurs GetValute(int id)
         {
           return  valutesCurs[id];
         }
 
-        public ValutesCurs GetLastValute()
+        public ValCurs GetLastValute()
         {
             return valutesCurs.LastOrDefault();
         }
 
-        public IEnumerable<ValutesCurs> GetValuteList()
+        public IEnumerable<ValCurs> GetValuteList()
         {
             return valutesCurs.ToArray();
         }
@@ -68,7 +68,7 @@ namespace Levin.Rate.Models.Repository
             throw new NotImplementedException();
         }
 
-        public void Update(ValutesCurs item)
+        public void Update(ValCurs item)
         {
             throw new NotImplementedException();
         }

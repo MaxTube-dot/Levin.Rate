@@ -4,22 +4,22 @@ using Levin.Rate.Models.Valute;
 
 namespace Levin.Rate.Models.Proxy
 {
-    class Proxy : Subject
+    public class ProxyWeb : Subject
     {
-        RealSubject realSubject;
+        RealSubject realSubject = new RealSubject();
 
-        ValutesCurs Valutes= new ValutesCurs();
+        ValCurs Valutes ;
 
         private DateTime lastRequest;
-        public override ValutesCurs Request()
+        public override ValCurs Request()
         {
             DateTime now = DateTime.Now;
 
-            long time = now.Ticks - lastRequest.Ticks;
+            TimeSpan time = now - lastRequest;
 
-            bool needRefresh = time > 300000;
+            bool needRefresh = time.TotalSeconds > 30;
 
-            if (realSubject == null || needRefresh)
+            if (Valutes == null || needRefresh)
             {
 
                 Valutes = realSubject.Request();
@@ -27,6 +27,8 @@ namespace Levin.Rate.Models.Proxy
                 ValuteRepository repository = new ValuteRepository();
 
                 repository.Create(Valutes);
+
+                lastRequest = DateTime.Now;
 
                 return Valutes;
             }

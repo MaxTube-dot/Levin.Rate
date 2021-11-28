@@ -11,13 +11,10 @@ namespace Levin.Rate.Models.Valute
     /// <summary>
     /// Валюта и ее описание.
     /// </summary>
-    #region AttributeValCursValute
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    #endregion
-
-    public partial class ValuteCurs
+    public partial class ValCursValute
     {
 
         private ushort numCodeField;

@@ -15,10 +15,12 @@
     <header class="header-dark">
         <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">
             <div class="container">
-                <a class="navbar-brand" href="#">Курсы валют</a><a class="navbar-brand" href="#">#Время</a>
+                <a class="navbar-brand" href="#">Курсы валют на</a><a class="navbar-brand" href="#">@DateTime.Now</a>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav"></ul>
-                </div><button class="btn btn-primary" type="button">Button</button>
+                </div>
+              
+                <input type="button" class="btn btn-primary" value="Обновить" onclick="location.href='@Url.Action("Index", "Home")'" />
             </div>
         </nav>
         @RenderBody()

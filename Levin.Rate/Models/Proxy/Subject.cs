@@ -2,8 +2,8 @@
 
 namespace Levin.Rate.Models.Proxy
 {
-    abstract class Subject
+   public abstract class Subject
     {
-        public abstract ValutesCurs Request();
+        public abstract ValCurs Request();
     }
 }
